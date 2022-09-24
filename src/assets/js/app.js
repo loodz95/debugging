@@ -5,3 +5,5 @@ console.log("Bijour Bank !");
 $(document).ready(function () {
   $(document).foundation();
 });
+
+let btnAllOpe = document.getElementById("#operation");
