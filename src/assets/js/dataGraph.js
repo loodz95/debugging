@@ -126,8 +126,6 @@ ajout.addEventListener("click", (e) => {
     //update la courbe//
     chart.update();
   } else {
-    let negatif = -Math.abs(valueMontantAjout);
-    console.log(negatif);
     grid.innerHTML += `<div class="operation debit">
           <div class="grid-x grid-padding-x align-middle">
             <div class="cell shrink">
@@ -143,13 +141,13 @@ ajout.addEventListener("click", (e) => {
             </div>
             <div class="cell small-3 text-right">
               <div>
-                <p class="count">${negatif}€</p>
+                <p class="count">${valueMontantAjout}€</p>
                 <small>37.5%</small>
               </div>
             </div>
           </div>
         </div>`;
-
+    console.log(valueMontantAjout);
     //Permet d'ajouter les opérations en bas de page après avoir submit//
     config.data.labels.push(valueTitreAjout);
     config.data.datasets[0].data.push(valueMontantAjout);
@@ -164,16 +162,3 @@ ajout.addEventListener("click", (e) => {
   }
   solde.innerHTML = sum;
 });
-
-let credit = document.getElementById("credit");
-let ope = document.getElementById("operation");
-let debit = document.getElementById("debit");
-let creditBtn = document.getElementById("creditOpe");
-
-function trierCredit() {
-  credit.style.display = "block";
-  ope.style.display = "block";
-  debit.style.display = "none";
-}
-
-creditBtn.addEventListener("click", trierCredit);
