@@ -162,3 +162,36 @@ ajout.addEventListener("click", (e) => {
   }
   solde.innerHTML = sum;
 });
+
+let btnallOpe = document.getElementById("allOperation");
+let btncreditOpe = document.getElementById("creditOp");
+let btndebitOpe = document.getElementById("debitOp");
+let debitOpeValue = document.querySelectorAll(".credit");
+let creditOpeValue = document.querySelectorAll(".debit");
+let listeBtn = document.querySelectorAll("a");
+function removeClasslist() {
+  btnallOpe.classList.remove("active");
+  btncreditOpe.classList.remove("active");
+  btndebitOpe.classList.remove("active");
+}
+btncreditOpe.addEventListener("click", () => {
+  removeClasslist();
+  btncreditOpe.classList.add("active");
+  debitOpeValue.forEach((element) => (element.style.display = "block"));
+  creditOpeValue.forEach((element) => (element.style.display = "none"));
+  listeBtn.forEach((element) => (element.style.display = "block"));
+});
+btndebitOpe.addEventListener("click", () => {
+  removeClasslist();
+  btndebitOpe.classList.add("active");
+  creditOpeValue.forEach((element) => (element.style.display = "block"));
+  debitOpeValue.forEach((element) => (element.style.display = "none"));
+  listeBtn.forEach((element) => (element.style.display = "block"));
+});
+btnallOpe.addEventListener("click", () => {
+  removeClasslist();
+  btnallOpe.classList.add("active");
+  creditOpeValue.forEach((element) => (element.style.display = "block"));
+  debitOpeValue.forEach((element) => (element.style.display = "block"));
+  listeBtn.forEach((element) => (element.style.display = "block"));
+});
